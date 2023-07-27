@@ -1,0 +1,10 @@
+.login_bg{
+    height: 100%;
+    width: 50%;
+    background-image: url('../assets/bg-login.jpg');
+}
+
+.page-box{
+    background: rgb(55,55,154);
+    background: radial-gradient(circle, rgba(55,55,154,1) 15%, rgba(0,212,255,1) 47%, rgba(30,101,238,1) 85%); 
+}

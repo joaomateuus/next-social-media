@@ -1,22 +1,31 @@
 import { useState } from 'react';
 import styles from '../styles/index.module.css';
+import SignUpForm from '@/components/SignUpForm';
+import LoginForm from '@/components/LoginForm';
+import { SignUpPayload } from '@/interfaces/SignUpPayload';
 
 export default function Home() {
     const [activeTab, setActiveTab] = useState('login');
     const styleForActiveTab = 'border-b border-black text-xl';
-    const styleForActiveBoxLogin = "flex flex-col justify-start items-start h-3/4 w-1/2 rounded-md border-2 border-black"; 
-    const styleForActiveSignUp = "flex flex-col justify-start items-start h-4/5 w-1/2 rounded-md border-2 border-black"; 
+    const styleForActiveBoxLogin = "flex flex-col justify-start items-start h-3/4 w-1/2"; 
+    const styleForActiveSignUp = "flex flex-col justify-start items-start h-3/4 w-1/2"; 
+
+    const handleLoginFormSubmit = (username: string, password: string) => {
+        console.log(username, password);
+    };
+    const handleSignUpFormSubmit = (data: SignUpPayload) => {
+        console.log(data);
+    };
 
     const handleTabsClick = (clickedTab: string) => {
         setActiveTab(clickedTab)
     };
-  
-  
+
     return (
     <>
         <div className='flex items-start justify-start h-screen w-full'>
             <div className={styles.login_bg}></div>
-            <div className="flex items-center justify-center h-full w-full">
+            <div className="flex items-center justify-center h-full w-4/5">
                 <div className={
                     activeTab === "login" ? styleForActiveBoxLogin : styleForActiveSignUp
                 }>
@@ -32,34 +41,14 @@ export default function Home() {
                             </button>
                         </li>
                     </ul>
-                    <div className='flex flex-col items-center justify-center h-full w-full p-4'>
-                        <div className='flex flex-col justify-center items-start w-5/6'>
-                            <label>
-                                Username
-                            </label>
-                            <input className='w-full h-12 bg-gray-300 rounded-md outline-none p-4' type="text" />
-                        </div>
-
-                        <div className='flex flex-col justify-center items-start w-5/6'>
-                            <label>
-                                Password
-                            </label>
-                            <input className='w-full h-12 bg-gray-300 rounded-md outline-none p-4' type="text" />
-                        </div>
-
-                        <button className='mt-6 w-5/6 h-12 bg-blue-700 text-white rounded-md'>
-                            Submit
-                        </button>
-                    </div>
+                    {
+                        activeTab === "login" 
+                        ? <LoginForm onLoginSubmit={handleLoginFormSubmit} />
+                        : <SignUpForm onSignUpSubmit={handleSignUpFormSubmit} />
+                    }
                 </div>
             </div>
         </div>
     </>
-        
-
-
-    )
-
-
-}
+)}
 

@@ -6,13 +6,13 @@ interface SignUpFormProps {
 }
 
 export default function SignUpForm({ onSignUpSubmit }: SignUpFormProps) {
-    const [data, setData] = useState({
+    const [data, setData] = useState<SignUpPayload>({
         username: '',
         name: '',
         surname: '',
         email: '',
         password: '',
-        confirmPassword: '',
+        confirm_password: '',
     });
 
     return (
@@ -66,8 +66,8 @@ export default function SignUpForm({ onSignUpSubmit }: SignUpFormProps) {
                         <label className='text-xl'>
                             Confirm Password
                         </label>
-                        <input value={data.confirmPassword} 
-                            onChange={(e) => setData({...data, confirmPassword: e.target.value})} 
+                        <input value={data.confirm_password} 
+                            onChange={(e) => setData({...data, confirm_password: e.target.value})} 
                             className='w-full h-12 bg-gray-300 rounded-md outline-none p-4 mb-2' type="text" />
                     </div>
 

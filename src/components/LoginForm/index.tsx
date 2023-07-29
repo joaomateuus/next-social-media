@@ -1,7 +1,8 @@
+import { UserData } from "@/context";
 import { useState } from "react";
 
 interface LoginFormProps {
-    onLoginSubmit: (username: string, password: string) => void;
+    onLoginSubmit: (data: UserData) => void;
 }
 
 export default function LoginForm({ onLoginSubmit }: LoginFormProps) {
@@ -14,7 +15,8 @@ export default function LoginForm({ onLoginSubmit }: LoginFormProps) {
                 <label className='text-xl'>
                     Username
                 </label>
-                <input value={username}
+                <input 
+                    value={username}
                     onChange={(e) => setUsername(e.target.value)} 
                     className='w-full h-12 bg-gray-300 rounded-md outline-none p-4 mb-2' type="text" 
                 />
@@ -23,11 +25,12 @@ export default function LoginForm({ onLoginSubmit }: LoginFormProps) {
                     <label className='text-xl'>
                         Password
                     </label>
-                    <input value={password} 
+                    <input 
+                        value={password} 
                         onChange={(e) => setPassword(e.target.value)} 
                         className='w-full h-12 bg-gray-300 rounded-md outline-none p-4 mb-2' type="text" />
                 </div>
-                <button onClick={() => onLoginSubmit(username, password)} className='mt-6 w-5/6 h-12 bg-blue-700 text-white rounded-md'>
+                <button onClick={() => onLoginSubmit({username, password})} className='mt-6 w-5/6 h-12 bg-blue-700 text-white rounded-md'>
                     Submit
                 </button>
             </div>

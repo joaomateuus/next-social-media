@@ -15,6 +15,18 @@ export default function SignUpForm({ onSignUpSubmit }: SignUpFormProps) {
         confirm_password: '',
     });
 
+    const cleanData = () => {
+        onSignUpSubmit(data)
+        setData({
+            username: '',
+            name: '',
+            surname: '',
+            email: '',
+            password: '',
+            confirm_password: '',
+        })
+    }
+
     return (
         <div className='flex flex-col items-center justify-start h-full w-full p-4'>
                     <div className='flex flex-col justify-center items-start w-5/6'>
@@ -71,7 +83,7 @@ export default function SignUpForm({ onSignUpSubmit }: SignUpFormProps) {
                             className='w-full h-12 bg-gray-300 rounded-md outline-none p-4 mb-2' type="text" />
                     </div>
 
-                    <button onClick={() => onSignUpSubmit(data)} className='mt-6 w-5/6 h-12 bg-blue-700 text-white rounded-md'>
+                    <button onClick={cleanData} className='mt-6 w-5/6 h-12 bg-blue-700 text-white rounded-md'>
                         Submit
                     </button>
                 </div>

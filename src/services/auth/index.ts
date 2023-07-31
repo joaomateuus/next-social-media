@@ -1,8 +1,21 @@
 import { SignUpPayload } from "@/interfaces/SignUpPayload";
 import { httpClient } from "../api";
 
-export async function loginService(email: string, password: string) {
-    const response = await httpClient.post('account/auth/login', {email, password});
+interface LoginPayload{
+    data: {
+        token: string,
+        username: string
+    }
+    errors: ServiceErrors | null
+};
+
+interface ServiceErrors{
+    status: number,
+    message: string
+}
+
+export async function loginService(username: string, password: string): Promise<LoginPayload> {
+    const response = await httpClient.post('account/auth/login', {username, password});
 
     let errors = null;
 
@@ -20,7 +33,7 @@ export async function loginService(email: string, password: string) {
 }
 
 export async function createUserService(data: SignUpPayload) {
-    const response = await httpClient.post('account/auth/login', {...data});
+    const response = await httpClient.post('account/auth/sign_up', {...data});
 
     let errors = null;
 

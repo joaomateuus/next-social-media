@@ -27,7 +27,7 @@ const AuthProvider: React.FC<ComponentProps> = ({ children }) => {
     const login = useCallback(async ({username, password}: UserData) => {
         const { data, errors } = await loginService(username, password);
 
-        if(errors) { return; };
+        if(errors) { return };
 
         localStorage.setItem("token", data.token);
         httpClient.defaults.headers.authorization = `Bearer ${data.token}`

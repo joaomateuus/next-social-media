@@ -28,7 +28,7 @@ export default function LoginForm({ onLoginSubmit }: LoginFormProps) {
                     <input 
                         value={password} 
                         onChange={(e) => setPassword(e.target.value)} 
-                        className='w-full h-12 bg-gray-300 rounded-md outline-none p-4 mb-2' type="text" />
+                        className='w-full h-12 bg-gray-300 rounded-md outline-none p-4 mb-2' type="password" />
                 </div>
                 <button onClick={() => onLoginSubmit({username, password})} className='mt-6 w-5/6 h-12 bg-blue-700 text-white rounded-md'>
                     Submit

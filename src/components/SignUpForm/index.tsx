@@ -71,7 +71,7 @@ export default function SignUpForm({ onSignUpSubmit }: SignUpFormProps) {
                         </label>
                         <input value={data.password} 
                             onChange={(e) => setData({...data, password: e.target.value})} 
-                            className='w-full h-12 bg-gray-300 rounded-md outline-none p-4 mb-2' type="text" />
+                            className='w-full h-12 bg-gray-300 rounded-md outline-none p-4 mb-2' type="password" />
                     </div>
 
                     <div className='flex flex-col justify-center items-start w-5/6'>
@@ -80,7 +80,7 @@ export default function SignUpForm({ onSignUpSubmit }: SignUpFormProps) {
                         </label>
                         <input value={data.confirm_password} 
                             onChange={(e) => setData({...data, confirm_password: e.target.value})} 
-                            className='w-full h-12 bg-gray-300 rounded-md outline-none p-4 mb-2' type="text" />
+                            className='w-full h-12 bg-gray-300 rounded-md outline-none p-4 mb-2' type="password" />
                     </div>
 
                     <button onClick={cleanData} className='mt-6 w-5/6 h-12 bg-blue-700 text-white rounded-md'>

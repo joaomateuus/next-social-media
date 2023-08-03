@@ -7,7 +7,7 @@ import { SignUpPayload } from '@/interfaces/SignUpPayload';
 import { AuthContext, UserData } from '@/context';
 import { useRouter } from 'next/router';
 import { createUserService } from '@/services/auth';
-import {  ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
@@ -34,7 +34,7 @@ export default function Home() {
     const handleSignUpFormSubmit = async (SignUpPayload: SignUpPayload) => {
         try {
             const { confirm_password, ...payload } = SignUpPayload
-            const { data, errors} = await createUserService(payload);
+            const { errors } = await createUserService(payload);
 
             if (!errors) {
                 toast.success("User created with sucessfully")

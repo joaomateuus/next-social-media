@@ -9,7 +9,7 @@ interface LoginPayload{
     errors: ServiceErrors | null
 };
 
-interface ServiceErrors{
+export interface ServiceErrors{
     status: number,
     message: string
 }

@@ -14,7 +14,6 @@ export default function Navbar() {
         <li className="text-xl mb-2 text-blue-300">Feed</li>
         <li className="text-xl mb-2">My Profile</li>
         <li className="text-xl mb-2">Messages</li>
-        {/* <li className="text-xl mb-2">Settings</li> */}
       </ul>
     </div>
   )

@@ -27,6 +27,8 @@ const AuthProvider: React.FC<ComponentProps> = ({ children }) => {
     const login = useCallback(async ({username, password}: UserData) => {
         const { data, errors } = await loginService(username, password);
 
+        if(errors?.status === 401) {alert("Usuário ou senha inválidos")}
+
         if(errors) { return };
 
         localStorage.setItem("token", data.token);
